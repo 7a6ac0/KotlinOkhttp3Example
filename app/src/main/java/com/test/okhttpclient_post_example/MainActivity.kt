@@ -14,20 +14,14 @@ class MainActivity : AppCompatActivity() {
 
         verticalLayout() {
             padding = dip(5)
-            val mTextView = textView {
-                textSize = 16f
-                width = matchParent
-                height = dip(300)
-            }
             button("Post data") {
                 textSize = 14f
                 width = matchParent
                 height = wrapContent
                 onClick {
                     doAsync {
-                        var response: OKHttpResponse? = OKHttpHelper.instance.post("http://www.baidu.com", null, null)
+                        var response: OKHttpResponse? = OKHttpHelper.instance.post("https://www.google.com", null, null)
                         val result: String? = response?.getResponseString()
-
 
                         uiThread {
                             //Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
