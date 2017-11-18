@@ -14,13 +14,17 @@ class MainActivity : AppCompatActivity() {
 
         verticalLayout() {
             padding = dip(5)
+            var mEditText = editText {
+                textSize = 16f
+                width = matchParent
+            }
             button("Post data") {
                 textSize = 14f
                 width = matchParent
                 height = wrapContent
                 onClick {
                     doAsync {
-                        var response: OKHttpResponse? = OKHttpHelper.instance.post("https://www.google.com", null, null)
+                        var response: OKHttpResponse? = OKHttpHelper.instance.post(mEditText?.text.toString(), null, null)
                         val result: String? = response?.getResponseString()
 
                         uiThread {
